@@ -44,7 +44,9 @@ const addEmployee = () => {
     }).then(resp => {
         if (resp.continue){
             askUser()
-        } 
+        } else {
+            render(employees)
+        }
     })
 }
 
@@ -58,7 +60,7 @@ const askUser = () => {
                 message: "What is their office number?",
                 name: "office"
             }).then(res => {
-                var manager = new Manager(response.name,response.email, response.id, res.office)
+                var manager = new Manager(response.name,response.id, response.email, res.office)
                 employees.push(manager)
                 console.log(employees)
                 addEmployee()
@@ -69,7 +71,7 @@ const askUser = () => {
                 message: "What is their github?",
                 name: "github"
             }).then(res => {
-                var engineer = new Engineer(response.name,response.email, response.id, res.github)
+                var engineer = new Engineer(response.name,response.id, response.email, res.github)
                 employees.push(engineer)
                 console.log(employees)
                 addEmployee()
@@ -80,7 +82,7 @@ const askUser = () => {
                 message: "What school do they attend?",
                 name: "school"
             }).then(res => {
-                var intern = new Intern(response.name,response.email, response.id, res.school)
+                var intern = new Intern(response.name,response.id, response.email, res.school)
                 employees.push(intern)
                 console.log(employees)
                 addEmployee()
