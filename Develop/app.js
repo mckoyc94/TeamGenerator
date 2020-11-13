@@ -62,7 +62,6 @@ const askUser = () => {
             }).then(res => {
                 var manager = new Manager(response.name,response.id, response.email, res.office)
                 employees.push(manager)
-                console.log(employees)
                 addEmployee()
             })
         } else if (response.designation === "Engineer"){
@@ -73,7 +72,6 @@ const askUser = () => {
             }).then(res => {
                 var engineer = new Engineer(response.name,response.id, response.email, res.github)
                 employees.push(engineer)
-                console.log(employees)
                 addEmployee()
             })
         } else {
@@ -84,7 +82,6 @@ const askUser = () => {
             }).then(res => {
                 var intern = new Intern(response.name,response.id, response.email, res.school)
                 employees.push(intern)
-                console.log(employees)
                 addEmployee()
             })
         }
