@@ -16,3 +16,5 @@ class Engineer extends Employee {
         Employee.getRole()
     }
 }
+
+module.exports = Engineer()

@@ -59,8 +59,9 @@ const askUser = () => {
                 message: "What is their office number?",
                 name: "office"
             }).then(res => {
-                // new Manager(response.name,response.email, response.id, res.office)
-                console.log(response.name, response.email, response.id, res.office)
+                new Manager(response.name,response.email, response.id, res.office)
+                employees.push(Manager)
+                console.log(employees)
                 addEmployee()
             })
         } else if (response.designation === "Engineer"){
@@ -69,8 +70,9 @@ const askUser = () => {
                 message: "What is their github?",
                 name: "github"
             }).then(res => {
-                // new Engineer(response.name,response.email, response.id, res.github)
-                console.log(response.name, response.email, response.id, res.github)
+                new Engineer(response.name,response.email, response.id, res.github)
+                employees.push(Engineer)
+                console.log(employees)
                 addEmployee()
             })
         } else {
@@ -79,8 +81,9 @@ const askUser = () => {
                 message: "What school do they attend?",
                 name: "school"
             }).then(res => {
-                // new Intern(response.name,response.email, response.id, res.school)
-                console.log(response.name, response.email, response.id, res.school)
+                new Intern(response.name,response.email, response.id, res.school)
+                employees.push(Intern)
+                console.log(employees)
                 addEmployee()
             })
         }
