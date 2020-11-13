@@ -14,7 +14,7 @@ const render = require("./lib/htmlRenderer");
 const employees = []
 
 const questions =[
-    {
+{
     type: "input",
     message: "What is the employee's name?",
     name: "name"
@@ -49,7 +49,6 @@ const addEmployee = () => {
 }
 
 const askUser = () => {
-
     inquirer
     .prompt(questions)
     .then(response => {
@@ -59,8 +58,8 @@ const askUser = () => {
                 message: "What is their office number?",
                 name: "office"
             }).then(res => {
-                new Manager(response.name,response.email, response.id, res.office)
-                employees.push(Manager)
+                var manager = new Manager(response.name,response.email, response.id, res.office)
+                employees.push(manager)
                 console.log(employees)
                 addEmployee()
             })
@@ -70,8 +69,8 @@ const askUser = () => {
                 message: "What is their github?",
                 name: "github"
             }).then(res => {
-                new Engineer(response.name,response.email, response.id, res.github)
-                employees.push(Engineer)
+                var engineer = new Engineer(response.name,response.email, response.id, res.github)
+                employees.push(engineer)
                 console.log(employees)
                 addEmployee()
             })
@@ -81,8 +80,8 @@ const askUser = () => {
                 message: "What school do they attend?",
                 name: "school"
             }).then(res => {
-                new Intern(response.name,response.email, response.id, res.school)
-                employees.push(Intern)
+                var intern = new Intern(response.name,response.email, response.id, res.school)
+                employees.push(intern)
                 console.log(employees)
                 addEmployee()
             })
