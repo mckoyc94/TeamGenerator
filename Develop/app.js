@@ -35,16 +35,34 @@ inquirer
             choices: ["Manager", "Engineer", "Intern "]
         }
     ]). then(response => {
-        // if (response.designation === "Manager"){
-        //     inquirer.prompt({
-        //         type: "input",
-        //         message: "What is their office number?",
-        //         name: "office"
-        //     }).then(res => {
-        //         new Manager(response.name)
-        //     })
-        // }
-        console.log(response.name, response.email, response.id, response.designation)
+        if (response.designation === "Manager"){
+            inquirer.prompt({
+                type: "input",
+                message: "What is their office number?",
+                name: "office"
+            }).then(res => {
+                // new Manager(response.name,response.email, response.id, res.office)
+                console.log(response.name, response.email, response.id, res.office)
+            })
+        } else if (response.designation === "Engineer"){
+            inquirer.prompt({
+                type: "input",
+                message: "What is their github?",
+                name: "github"
+            }).then(res => {
+                // new Engineer(response.name,response.email, response.id, res.github)
+                console.log(response.name, response.email, response.id, res.github)
+            })
+        } else {
+            inquirer.prompt({
+                type: "input",
+                message: "What school do they attend?",
+                name: "school"
+            }).then(res => {
+                // new Intern(response.name,response.email, response.id, res.school)
+                console.log(response.name, response.email, response.id, res.school)
+            })
+        }
     })
 
 // Write code to use inquirer to gather information about the development team members,
