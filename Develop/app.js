@@ -11,30 +11,48 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-inquirer
-    .prompt([
-        {
-            type: "input",
-            message: "What is the employee's name?",
-            name: "name"
-        }, 
-        {
-            type: "input",
-            message: "What is the employee's email?",
-            name: "email"
-        }, 
-        {
-            type: "input",
-            name: "id",
-            message: "What is the employee's id number?"
-        },
-        {
-            type: "list",
-            message: "What type of employee is this?",
-            name: "designation",
-            choices: ["Manager", "Engineer", "Intern "]
-        }
-    ]). then(response => {
+const employees = []
+
+const questions =[
+    {
+    type: "input",
+    message: "What is the employee's name?",
+    name: "name"
+}, 
+{
+    type: "input",
+    message: "What is the employee's email?",
+    name: "email"
+}, 
+{
+    type: "input",
+    name: "id",
+    message: "What is the employee's id number?"
+},
+{
+    type: "list",
+    message: "What type of employee is this?",
+    name: "designation",
+    choices: ["Manager", "Engineer", "Intern "]
+}]
+
+const addEmployee = () => {
+    inquirer.prompt({
+        type: "confirm",
+        message: "Would you like to add another employee?",
+        name: "continue"
+    }).then(resp => {
+        if (resp.continue){
+            askUser()
+        } 
+    })
+}
+
+const askUser = () => {
+
+    inquirer
+    .prompt(questions)
+    .then(response => {
         if (response.designation === "Manager"){
             inquirer.prompt({
                 type: "input",
@@ -43,6 +61,7 @@ inquirer
             }).then(res => {
                 // new Manager(response.name,response.email, response.id, res.office)
                 console.log(response.name, response.email, response.id, res.office)
+                addEmployee()
             })
         } else if (response.designation === "Engineer"){
             inquirer.prompt({
@@ -52,6 +71,7 @@ inquirer
             }).then(res => {
                 // new Engineer(response.name,response.email, response.id, res.github)
                 console.log(response.name, response.email, response.id, res.github)
+                addEmployee()
             })
         } else {
             inquirer.prompt({
@@ -61,10 +81,14 @@ inquirer
             }).then(res => {
                 // new Intern(response.name,response.email, response.id, res.school)
                 console.log(response.name, response.email, response.id, res.school)
+                addEmployee()
             })
         }
-    })
+        
+        })
+    }
 
+    askUser()
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
