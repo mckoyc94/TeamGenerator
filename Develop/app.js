@@ -1,4 +1,3 @@
-const Employee = require("./lib/Employee")
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -45,7 +44,8 @@ const addEmployee = () => {
         if (resp.continue){
             askUser()
         } else {
-            render(employees)
+          let html = render(employees)
+          fs.writeFileSync(outputPath, html)
         }
     })
 }
