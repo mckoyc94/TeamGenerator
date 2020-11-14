@@ -18,8 +18,13 @@
   <p> Inquirer </p>
 
   ## Usage
-  <p> Utilizing Node.js, the user is prompted with several questions to build a profile for a team member. Once all questions are answered, then the user is prompted to make a new member or not. After every member has had their information entered into the generator the app renders the information into HTML and creates a new file to be veiwed on a web browser.  </p>
-
+  <p> Utilizing Node.js, the user is prompted with several questions to build a profile for a team member.</p>
+  <img src = "Assets/Questions.JPG" alt = "Array of Questions Asked">
+  <br></br>
+  <p> Once all questions are answered, then the user is prompted to make a new member or not. After every member has had their information entered into the generator the app renders the information into HTML and creates a new file to be veiwed on a web browser.</p>
+  <img src = "Assets/finalProduct.JPG" alt = "Team Shown in Browser">
+  <br></br>
+  
   ## License
   <p> This app is covered under the MIT License </p>
   
